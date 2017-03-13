@@ -1,0 +1,45 @@
+<section class="customerslist">
+    <header class="header">
+        <h1>Customers</h1>
+        <p *ngIf="customers.length != 1">{{customers.length}} Customers</p>
+        <p *ngIf="customers.length === 1">{{customers.length}} Customer</p>
+        <button class="add" (click)="openCustomerForm()">Add Customer</button>
+        <form class="customer-form" #f="ngForm" name="newCustomer" ng-submit="addCustomer()">
+            <input id="name" [(ngModel)]="newCustomer.name" name="name"/>
+            <input id="email" [(ngModel)]="newCustomer.email" name="email"/>
+            <input id="telephone" [(ngModel)]="newCustomer.telephone" name="telephone"/>
+            <input id="street" [(ngModel)]="newCustomer.street" name="street"/>
+            <input id="city" [(ngModel)]="newCustomer.city" name="city"/>
+            <input id="state" [(ngModel)]="newCustomer.state" name="state"/>
+            <input id="zip" [(ngModel)]="newCustomer.zip" name="zip"/>
+            <button class="edit-btn create" type="submit">Create</button>
+            <button class="edit-btn cancel" (click)="cancelAdd()">Cancel</button>
+        </form>
+    </header>
+    <section class="main" *ngIf="customers.length > 0">
+        <ul class="customer-list">
+            <li class="customer-item" *ngFor="let customer of customers">
+                <div class="view">
+                    <div class="title">
+                        <h2 class="name">
+                            <input id="name"value={{customer.name}} readonly="true"/>
+                        </h2>
+                    </div>
+                    <div class="customer-info">
+                        <div class="contact">
+                            <input id="email" value={{customer.email}} readonly="true"/>
+                            <input id="telephone" value={{customer.telephone}} readonly="true"/>
+                        </div>
+                        <div class="address">
+                            <input id="street" value={{customer.street}} readonly="true"/>
+                            <input id="city" value={{customer.city}} readonly="true"/>
+                            <input id="state" value={{customer.state}} readonly="true"/>
+                            <input id="zip" value={{customer.zip}} readonly="true"/>
+                        </div>
+                    </div>
+                    <button class="destroy" (click)="removeCustomer(customer)"></button>
+                </div>
+            </li>
+        </ul>
+    </section>
+</section>

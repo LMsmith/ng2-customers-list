@@ -1,0 +1,26 @@
+{
+    "data" : [{
+        "id" : 0,
+        "name" : "Default Customer",
+        "email" : "test@aol.com",
+        "telephone" : "(555) 555-5555",
+        "address" : {
+            "street" : "1 Infinite Loop",
+            "city" : "Cupertino",
+            "state" : "CA",
+            "zip" : "95014"
+        }
+    },
+    {
+        "id" : 1,
+        "name" : "Second Customer",
+        "email" : "second@aol.com",
+        "telephone" : "(333) 333-3333",
+        "address" : {
+            "street" : "2 Infinite Loop",
+            "city" : "Cupertino",
+            "state" : "CA",
+            "zip" : "95014"
+        }
+    }]
+}
