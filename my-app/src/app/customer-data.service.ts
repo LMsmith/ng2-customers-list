@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Customer } from './customer';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class CustomerDataService {
+
+    private customerUrl = '../assets/customers.json';
 
 // placeholder for last ID number
 lastId: number = 0;
@@ -10,9 +13,8 @@ lastId: number = 0;
 // placeholder for customers
 customers: Customer[] = [];
 
-  constructor() { }
+  constructor(private http:Http) {}
 
-  // simulate POST /customers
   addCustomer(customer: Customer): CustomerDataService {
       if(!customer.id) {
           customer.id = ++this.lastId;
